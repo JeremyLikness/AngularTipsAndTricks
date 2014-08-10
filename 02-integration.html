@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Controller As in AngularJS</title>
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="animate.css"/>
+    <script src="angular.js"></script>
+    <script src="angular-animate.js"></script>
+    <script src="app/modules/jlwatch.js"></script>
+    <script src="app/modules/service.js"></script>
+    <script src="app/thirdparty/clock.js"></script>
+    <script src="app/thirdparty/fibgen.js"></script>
+    <script src="app/thirdparty/pi.js"></script>
+    <script src="app/main02.js"></script>
+    <script src="app/services/02/clockWrapper.js"></script>
+    <script src="app/services/02/fibWrapperService.js"></script>
+    <script src="app/services/02/piWrapperService.js"></script>
+    <script src="app/services/02/serviceProxy.js"></script>
+    <script src="app/controllers/02/clockCtrl.js"></script>
+    <script src="app/controllers/02/echoCtrl.js"></script>
+    <script src="app/controllers/02/fibCtrl.js"></script>
+    <script src="app/controllers/02/piCtrl.js"></script>
+    <script src="app/controllers/02/watchCtrl.js"></script>
+</head>
+<body data-ng-app="angularApp" jl-watch="">
+<div class="header" data-ng-include="'header.html'"></div>
+<h2>Third party integration.</h2>
+<p>This example shows approaches for integrating third-party components with Angular. The watch example integrates a third-party Angular
+module designed to track the number of watchers currently active in the app. You can see despite the Fibonacci sequence being read-only, it
+generates a lot of watchers. This is addressed in a later module. In the Fibonacci sequence example,
+the component is simply wrapped in a factory to make it available to Angular's dependency injection. The clock example
+actually uses intervals to iterate the clock. To integrate with Angular, the call to instantiate the clock is wrapped by
+intercepting the setInterval function and forcing it to run in a digest loop. The pi example uses an external approach for
+binding. The library exposes an API for binding (and defaults to a no-op) so the controller can simply plug into it, run
+it inside a digest loop and set the value explicitly to the controller.</p>
+<h3 data-ng-controller="watchCtrl as ctrl">Watches: {{ctrl.watchCount}}</h3>
+<h3>Duplicate Services in Third-Party Modules</h3>
+<div data-ng-controller="echoCtrl as ctrl">
+    <label for="myText">Enter text:&nbsp;</label><input id="myText" data-ng-model="ctrl.text"/>
+    <div>Service: {{ctrl.text1}}</div>
+    <div>Service 1: {{ctrl.text2}}</div>
+    <div>Service 2: {{ctrl.text3}}</div>
+</div>
+<h3>Fibonacci Sequence</h3>
+<div data-ng-controller="fibCtrl as ctrl" class="wordwrap">
+    <span data-ng-repeat="sequence in ctrl.sequences track by $index">{{sequence}}&nbsp;</span>
+</div>
+<h3>Clock Wrapper</h3>
+<div data-ng-controller="clockCtrl as ctrl">Current time: {{ctrl.clock.displayTime}}</div>
+<h3>Pi Wrapper</h3>
+<div data-ng-controller="piCtrl as ctrl">Current pi estimate: {{ctrl.pi}}</div>
+</body>
+</html>

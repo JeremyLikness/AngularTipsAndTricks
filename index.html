@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular Tips and Tricks</title>
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="animate.css"/>
+    <script src="angular.js"></script>
+    <script src="angular-animate.js"></script>
+    <script src="app/toc.js"></script>
+</head>
+<body data-ng-app="angularApp">
+    <div class="header" data-ng-include="'header.html'"></div>
+    <h2>Table of Contents of Examples</h2>
+    <ul data-ng-controller="myCtrl as ctrl">
+        <li data-ng-repeat="item in ctrl.toc">
+            <a data-ng-href="{{item.url}}">{{item.name}}</a>
+        </li>
+    </ul>
+</body>
+</html>
