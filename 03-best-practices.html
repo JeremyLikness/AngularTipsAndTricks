@@ -33,8 +33,9 @@
     <li><b>Avoid Unnecessary Watches</b> &mdash; the product rating service demonstrates how to use properties and callbacks to avoid the overhead of
     adding watches.</li>
     <li><b>Interception</b> &mdash; there are two interceptors, one that demonstrates intercepting the request for widgets to replace it with advertisements,
-    and another that demonstrates massaging the data returned. Although you would not normally implement a filter this way, it shows how data can be
-    manipulated globally before being returned to the app.</li>
+    and another that demonstrates massaging the data returned. For the request, a common reason you may do this is to version APIs and simply update the
+        version in a central location. For the response, although you would not normally implement a filter this way, it demonstrates how data can be
+    manipulated globally before being returned to the app (practical applications include security trimming, setting authentication tokens in headers, etc.)</li>
     <li><b>Asynchronous route loading</b> &mdash; this is most common when you have user context or security data that must be available before
 your template loads. In the example, a service is set up to emulate web service call (it builds in a delay). Navigate to Category to see the result
 of <i>not</i> waiting, while the route definition for the widgets item does wait to resolve the call before loading the template.</li></ul>
