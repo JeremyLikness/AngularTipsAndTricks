@@ -22,6 +22,11 @@ div.float-left {
     float: left;
 }
 
+li.ng-enter {
+    -webkit-animation: lightSpeedIn 0.5s;
+    animation: lightSpeedIn 0.5s;
+}
+
 h3.ng-enter {
     -webkit-animation: lightSpeedIn 0.5s;
     animation: lightSpeedIn 0.5s;
@@ -69,4 +74,20 @@ br.clear-all {
     white-space: -o-pre-wrap; /* Opera 7 */
     white-space: -moz-pre-wrap; /* Mozilla */
     word-wrap: break-word; /* IE 5+ */
+}
+
+.darkred {
+    color: darkred;
+}
+
+.darkgreen {
+    color: darkgreen;
+}
+
+.darkblue {
+    color: darkblue;
+}
+
+.white {
+    color: white;
 }

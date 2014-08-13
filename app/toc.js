@@ -8,8 +8,10 @@
     }, {
         name: 'Integration Example',
         url: '02-integration.html'
-    }
-    ]);
+    }, {
+        name: 'Best Practices Example',
+        url: '03-best-practices.html'
+    }]);
 
     function Controller (toc) {
         this.toc = toc;

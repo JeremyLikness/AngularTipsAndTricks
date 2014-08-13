@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Best Practices in AngularJS</title>
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="animate.css"/>
+    <script src="angular.js"></script>
+    <script src="angular-animate.js"></script>
+    <script src="app/main03.js"></script>
+    <script src="angular-route.js"></script>
+    <script src="app/controllers/03/categoriesCtrl.js"></script>
+    <script src="app/controllers/03/navCtrl.js"></script>
+    <script src="app/controllers/03/productsCtrl.js"></script>
+    <script src="app/controllers/03/widgetsCtrl.js"></script>
+    <script src="app/routes/03routes.js"></script>
+    <script src="app/services/03/baseService.js"></script>
+    <script src="app/services/03/categoriesService.js"></script>
+    <script src="app/services/03/colorService.js"></script>
+    <script src="app/services/03/productsService.js"></script>
+    <script src="app/services/03/productRatingService.js"></script>
+    <script src="app/services/03/ratingInterceptor.js"></script>
+    <script src="app/services/03/widgetInterceptor.js"></script>
+    <script src="app/services/03/widgetsService.js"></script>
+</head>
+<body data-ng-app="angularApp">
+<div class="header" data-ng-include="'header.html'"></div>
+<h2>Best Practices</h2>
+<p>This example demonstrates various best practices for dealing with scenarios in Angular. These include:</p>
+<ul><li><b>Use of Angular Extend</b> &mdash; this enables reuse and consolidates code where possible.</li>
+    <li><b>Factories for Common Methods</b> &mdash; the services for the products, categories, and widgets are almost identical, as are the controllers, so the
+        common behaviors are defined and in the case of the products controller the specific behaviors are then extended to the component.</li>
+    <li><b>Avoid Unnecessary Watches</b> &mdash; the product rating service demonstrates how to use properties and callbacks to avoid the overhead of
+    adding watches.</li>
+    <li><b>Interception</b> &mdash; there are two interceptors, one that demonstrates intercepting the request for widgets to replace it with advertisements,
+    and another that demonstrates massaging the data returned. Although you would not normally implement a filter this way, it shows how data can be
+    manipulated globally before being returned to the app.</li>
+    <li><b>Asynchronous route loading</b> &mdash; this is most common when you have user context or security data that must be available before
+your template loads. In the example, a service is set up to emulate web service call (it builds in a delay). Navigate to Category to see the result
+of <i>not</i> waiting, while the route definition for the widgets item does wait to resolve the call before loading the template.</li></ul>
+<h2>Navigate Using the Links Below</h2>
+<div data-ng-controller="navCtrl as ctrl">
+    <h3>Minimum Rating: <input id="ratingSlider" type="range" min="0" max="10" data-ng-model="ctrl.productRatingSvc.rating"/> {{ctrl.productRatingSvc.rating}}</h3>
+    <ul>
+        <li data-ng-repeat="item in ctrl.items">
+            <a href="" data-ng-click="ctrl.navigate(item)">{{item}}</a>
+        </li>
+    </ul>
+</div>
+<div data-ng-view="">(content will load here)</div>
+</body>
+</html>
