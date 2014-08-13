@@ -10,3 +10,5 @@ Includes the following libraries:
 [Google's AngularJS (version 1.2.9)] (https://github.com/angular/angular.js) 
 
 [Brian Ford's ZoneJS] (https://github.com/angular/zone.js)
+
+[Pasquale Vazzana's Bindonce] (https://github.com/Pasvaz/bindonce)
