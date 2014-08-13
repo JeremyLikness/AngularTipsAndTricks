@@ -11,6 +11,9 @@
     }, {
         name: 'Best Practices Example',
         url: '03-best-practices.html'
+    }, {
+        name: 'Performance Example',
+        url: '04-performance.html'
     }]);
 
     function Controller (toc) {

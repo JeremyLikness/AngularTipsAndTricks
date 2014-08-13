@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Performance in AngularJS</title>
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="animate.css"/>
+    <script src="angular.js"></script>
+    <script src="angular-animate.js"></script>
+    <script src="bindonce.js"></script>
+    <script src="zone.js"></script>
+    <script src="app/modules/jlwatch.js"></script>
+    <script src="app/thirdparty/customZone.js"></script>
+    <script src="app/thirdparty/fibgen.js"></script>
+    <script src="app/main04.js"></script>
+    <script src="app/services/02/fibWrapperService.js"></script>
+    <script src="app/controllers/02/fibCtrl.js"></script>
+    <script src="app/controllers/02/watchCtrl.js"></script>
+</head>
+<body jl-watch="">
+<div class="header" data-ng-include="'header.html'"></div>
+<h2>Performance</h2>
+<p>This example builds on the previous integration example by showing how to tweak and instrument performance. The "tweaks"
+involve using bind-once to ensure extraneous watches aren't created for the Fibonacci sequence. The "instrumentation" is
+performed by zone. In the console you can see generic performance information and the associated call stack. The incidents
+are fired based on the intervals for computation of the sequence followed by related animation kicked off as a result.</p>
+<p>The long paged list example is <a href="http://jeremylikness.github.io/AngularDebuggingAndPerformance/06-long-lists.html" target="_blank">available here</a>
+    along with the <a href="https://github.com/JeremyLikness/AngularDebuggingAndPerformance/blob/gh-pages/06-long-lists.html" target="_blank">full source
+        code</a>.</p>
+<h3 data-ng-controller="watchCtrl as ctrl">Watches: {{ctrl.watchCount}}</h3>
+<h3>Fibonacci Sequence</h3>
+<div data-ng-controller="fibCtrl as ctrl" class="wordwrap">
+    <span data-bindonce data-ng-repeat="sequence in ctrl.sequences track by $index" bo-text="sequence + '&nbsp;'"></span>
+</div>
+</body>
+</html>

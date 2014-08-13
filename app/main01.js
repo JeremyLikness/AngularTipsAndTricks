@@ -1,3 +1,6 @@
-'use strict';
+(function (w) {
+    'use strict';
 
-window.currentApp = angular.module('angularApp', ['ngAnimate']);
+    w.currentApp = angular.module('angularApp', ['ngAnimate']);
+})(window);
+
