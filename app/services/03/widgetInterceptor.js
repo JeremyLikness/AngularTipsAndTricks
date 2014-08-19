@@ -3,6 +3,7 @@
     app.factory('widgetHttpInterceptor', ['$q', function ($q) {
 
         return {
+
             request: function (config) {
 
                 var replace;

@@ -1,14 +1,17 @@
 (function (app) {
 
-    function Service ($rootScope, $log, $q, $timeout) {
+    function Service ($rootScope, $log, $q, $timeout, colorList) {
         this.$q = $q;
         this.$timeout = $timeout;
         this.$rootScope = $rootScope;
+        this.colors = colorList;
         $log.log('Color service created.');
     }
 
+    app.value('colorList',
+        ['darkred', 'darkgreen', 'darkblue']);
+
     angular.extend(Service.prototype, {
-        colors: ['darkred', 'darkgreen', 'darkblue'],
         idx: 0,
         getColor: function () {
             var defer = this.$q.defer(), _this = this,
@@ -25,7 +28,7 @@
         }
     });
 
-    Service.$inject = ['$rootScope', '$log', '$q', '$timeout'];
+    Service.$inject = ['$rootScope', '$log', '$q', '$timeout', 'colorList'];
 
     app.service('colorSvc', Service);
 

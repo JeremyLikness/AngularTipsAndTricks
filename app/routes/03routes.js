@@ -11,7 +11,8 @@
             })
             .when('/Categories', {
                 templateUrl: 'views/categories.html',
-                controller: 'categoriesCtrl',
+                controller:
+                    'categoriesCtrl',
                 controllerAs: 'ctrl'
             })
             .when('/Widgets', {
