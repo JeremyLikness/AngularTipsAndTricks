@@ -1,8 +1,7 @@
 (function (app) {
 
-    function Service ($rootScope, $q, $log, $timeout) {
+    function Service ($rootScope, $log, $q, $timeout) {
         this.$q = $q;
-        this.$log = $log;
         this.$timeout = $timeout;
         this.$rootScope = $rootScope;
         $log.log('Color service created.');
@@ -12,7 +11,6 @@
         colors: ['darkred', 'darkgreen', 'darkblue'],
         idx: 0,
         getColor: function () {
-            this.$log.log('Color service invoked.');
             var defer = this.$q.defer(), _this = this,
                 timeout = Math.floor(Math.random() * 500) + 500;
             this.$timeout(function () {
@@ -26,6 +24,8 @@
             return defer.promise;
         }
     });
+
+    Service.$inject = ['$rootScope', '$log', '$q', '$timeout'];
 
     app.service('colorSvc', Service);
 
