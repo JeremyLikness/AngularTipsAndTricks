@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TypeScript AngularJS App</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <link rel="stylesheet" href="Content/animate.css" type="text/css" />
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <script src="app.js"></script>
+    <script src="scripts/app/sunsets.js"></script>
+    <script src="scripts/app/sunsetService.js"></script>
+    <script src="scripts/app/searchController.js"></script>
+    <script src="scripts/app/listController.js"></script>
+</head>
+<body data-ng-app="angularApp">
+    <h1>TypeScript AngularJS App</h1>
+    <p>
+        This example shows some lessons learned and best practices using controller as. Note there are two controllers that
+        communicate with each other but do not rely on scope and do not use explicit watches.
+    </p>
+    <div data-ng-controller="searchCtrl as ctrl">
+        <label for="searchText">Search:&nbsp;</label>
+        <input id="searchText" data-ng-model="ctrl.filter" />
+    </div>
+    <div data-ng-controller="sunsetListCtrl as ctrl">
+        <h3 data-ng-if="ctrl.sunsetSvc.filter">Filtered by: {{ctrl.sunsetSvc.filter}}</h3>
+        <div data-ng-repeat="sunset in ctrl.sunsetSvc.sunsets | filter:ctrl.sunsetSvc.filter">
+            <div class="float-left animated bounceIn" data-ng-click="ctrl.select(sunset)">
+                <b>{{sunset.title}}</b><br />
+                <img class="thumbnail" data-ng-src="images/{{sunset.image}}" /><br />
+                <i>{{sunset.location}}</i>
+            </div>
+        </div>
+        <br class="clear-all">
+        <h2>{{ctrl.sunsetSvc.selected.title}}</h2>
+        <h3><i>{{ctrl.sunsetSvc.selected.location}}</i></h3>
+        <img data-ng-src="images/{{ctrl.sunsetSvc.selected.image}}" />
+    </div>
+</body>
+</html>
