@@ -4,6 +4,7 @@ Angular Tips and Tricks
 Sample code for DevLink 2014 AngularJS Tips and Tricks talk by [Jeremy Likness](http://csharperimage.jeremylikness.com).
 
 [Run the Samples Live](http://jeremylikness.github.io/AngularTipsAndTricks)
+
 [View the Deck](http://www.slideshare.net/jeremylikness/advanced-angularjs-tips-and-tricks)
 
 Includes the following libraries: 
